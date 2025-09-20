@@ -1,9 +1,11 @@
-import {Router} from "Exress"
-import { listarCategoria, adicionarCategoria, deleteCategoria, updateCategoria  } from "../controllers/categoriaController.js"
+import {Router} from "express"
+import { listarCategoria, adicionarCategoria, mudarCategoria, deletaCategoria  } from "../controllers/categoriaController.js"
 
-Router.get("/", listarCategoria)
-Router.post("/", adicionarCategoria)
-Router.put("/", deleteCategoria)
-Router.delete("/", updateCategoria)
+const router = Router()
 
-export default Router
+router.get("/", listarCategoria)
+router.post("/", adicionarCategoria)
+router.put("/:id", mudarCategoria)
+router.delete("/:id", deletaCategoria)
+
+export default router
