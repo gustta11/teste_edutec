@@ -1,4 +1,4 @@
-import { getAllEventos, createEvento } from "../models/eventoModel.js";
+import { getAllEventos, createEvento, updateEvento, deleteEvento } from "../models/eventoModel.js";
 
 export const listarEventos = async (req, res) =>{
     try{
@@ -15,5 +15,23 @@ export const adicionarEvento = async (req, res) =>{
         res.json({mensagem: "Evento criado com sucesso"})
     } catch (err) {
         res.status(500).json({erro: "Erro ao criar evento", err})
+    }
+}
+
+export const mudarDadosEvento = async (req, res) =>{
+    try{
+        await updateEvento(req.params.id,req.body)
+        res.json({mensagem:"Atualização de dados do evento feita com sucesso"})
+    } catch (err) {
+        res.status(500).json({erro:"Erro ao atualizar dados do evento"}, err)
+    }
+}
+
+export const deletaEvento = async (req, res) =>{
+    try{
+        await deleteEvento(req.params.id)
+        res.json({mensagem:"Evento apagado com sucesso"})
+    } catch (err){
+        res.status(500).json({erro: "Erro ao apagar evento"})
     }
 }

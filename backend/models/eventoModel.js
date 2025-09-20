@@ -12,5 +12,53 @@ export const createEvento = async (evento) =>{
     [nome,data_evento,localizacao,anfitriao,senha_evento,data_criacao,id_admin]) 
 }
 
+export const updateEvento = async (id,evento) =>{
+    const campos = [];
+    const valores = [];
+
+    if(evento.nome){
+        campos.push("nome = ?")
+        valores.push(evento.nome)
+    }
+
+     if(evento.data_evento){
+        campos.push("data_evento = ?")
+        valores.push(evento.data_evento)
+    }
+
+     if(evento.localizacao){
+        campos.push("localizacao = ?")
+        valores.push(evento.lozalizacao)
+    }
+
+     if(evento.anfitriao){
+        campos.push("anfitriao = ?")
+        valores.push(evento.anfitriao)
+    }
+
+     if(evento.senha_evento){
+        campos.push("senha_evento = ?")
+        valores.push(evento.senha_evento)
+    }
+
+      if(convidado.data_criacao){
+        campos.push("data_criacao = ?")
+        valores.push(evento.data_criacao)
+    }
+
+      if(evento.id_admin){
+        campos.push("id_admin = ?")
+        valores.push(evento.id_admin)
+    }
+
+    valores.push(id)
+
+    const query = `UPDATE  eventos SET  ${campos.join(", ")} WHERE id = ?`
+    await db.query(query, valores)
+}
+
+export const deleteEvento = async (id) =>{
+    await db.query("DELETE * FROM eventos WHERE id = ? ", [id])
+}
 
 
