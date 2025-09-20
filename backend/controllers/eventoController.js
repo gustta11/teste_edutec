@@ -1,4 +1,4 @@
-import { getAllEventos, createEvento } from "../models/evento";
+import { getAllEventos, createEvento } from "../models/eventoModel.js";
 
 export const listarEventos = async (req, res) =>{
     try{
@@ -11,8 +11,8 @@ export const listarEventos = async (req, res) =>{
 
 export const adicionarEvento = async (req, res) =>{
     try{
-        const id = await createEvento(req.body)
-        res.json({mensagem: "Evento criado com sucesso", id})
+        await createEvento(req.body)
+        res.json({mensagem: "Evento criado com sucesso"})
     } catch (err) {
         res.status(500).json({erro: "Erro ao criar evento"})
     }
