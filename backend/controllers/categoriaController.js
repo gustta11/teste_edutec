@@ -1,4 +1,4 @@
-import { getAllCategorias, createCategoria, adicionarCategoria, updateCategoria, deleteCategoria } from "../models/categoriaModel.js";
+import { getAllCategorias, createCategoria, updateCategoria, deleteCategoria } from "../models/categoriaModel.js";
 
 export const listarCategoria = async(req, res) =>{
     try{
