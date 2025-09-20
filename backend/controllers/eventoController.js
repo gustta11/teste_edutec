@@ -5,7 +5,7 @@ export const listarEventos = async (req, res) =>{
         const eventos = await getAllEventos();
         res.json(eventos)
     } catch (err) {
-        res.status(500).json({erro: "Erro ao listar eventos"})
+        res.status(500).json({erro: "Erro ao listar eventos",err})
     }
 }
 
@@ -14,6 +14,6 @@ export const adicionarEvento = async (req, res) =>{
         await createEvento(req.body)
         res.json({mensagem: "Evento criado com sucesso"})
     } catch (err) {
-        res.status(500).json({erro: "Erro ao criar evento"})
+        res.status(500).json({erro: "Erro ao criar evento", err})
     }
 }

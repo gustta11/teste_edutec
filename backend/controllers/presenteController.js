@@ -5,7 +5,7 @@ export const listarPresentes = async(req, res) =>{
         const presentes = await getAllPresentes()
         res.json(presentes)
     } catch (err){
-        res.status(500).json({erro: "Erro ao listar presentes"})
+        res.status(500).json({erro: "Erro ao listar presentes",err})
 
     }
 }
@@ -15,6 +15,6 @@ export const adicionarPresente = async(req,res) =>{
         await createPresente(req.body)
         res.json({mensagem: "Presente registrado com sucesso"})
     } catch (err){
-        res.status(500).json({erro: "Erro ao registrar presente"})
+        res.status(500).json({erro: "Erro ao registrar presente", err})
     }
 } 
