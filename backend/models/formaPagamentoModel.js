@@ -10,3 +10,11 @@ export const createFormaPagamento = async (formaPagamento) =>{
     await db.query("INSERT INTO formas_pagamento (nome) VALUES (?)",[nome])
 }
 
+export const updateFormaPagamento = async (id, formaPagamento) =>{
+    const {nome} = formaPagamento
+    await db.query("UPDATE formas_pagamento SET nome = ? WHERE id = ?", [nome, id])
+}
+
+export const deleteFormaPagamento = async (id) =>{
+    await db.query("DELETE * FROM formas_pagamento WHERE id = ?", [id])
+}

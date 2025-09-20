@@ -7,7 +7,7 @@ const router = Router()
 
 router.get("/", listarEventos)
 router.post("/", adicionarEvento)
-router.put("/", mudarDadosEvento)
-router.delete("/", deletaEvento)
+router.put("/:id", mudarDadosEvento)
+router.delete("/:id", deletaEvento)
 
 export default router

@@ -6,7 +6,7 @@ const router = Router()
 
 router.get("/", listarConvidado)
 router.post("/", adicionarConvidado)
-router.put("/", mudarDadosConvidado)
-router.delete("/", deletaConvidado)
+router.put("/:id", mudarDadosConvidado)
+router.delete("/:id", deletaConvidado)
 
 export default router
