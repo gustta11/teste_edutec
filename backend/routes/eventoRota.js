@@ -2,7 +2,10 @@ import {Router} from "express"
 
 import { listarEventos, adicionarEvento } from "../controllers/eventoController.js"
 
-Router.get("/", listarEventos)
-Router.post("/", adicionarEvento)
+const router = Router()
 
-export default Router
+
+router.get("/", listarEventos)
+router.post("/", adicionarEvento)
+
+export default router

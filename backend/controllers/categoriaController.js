@@ -22,8 +22,8 @@ export const mudarCategoria = async (req, res) =>{
     try{
         await updateCategoria(req.params.id,req.body.nome)
         res.json({mensagem:"Categoria atualizada com sucesso"})
-    } catch (errr ){
-        res.status(500).json({erro:"Erro ao atualzar categoria"})
+    } catch (err ){
+        res.status(500).json({erro:"Erro ao atualzar categoria",err})
     }
 }
 
@@ -31,7 +31,7 @@ export const deletaCategoria = async (req, res) =>{
      try{
         await deleteCategoria(req.params.id)
         res.json({mensagem:"Categoria deletada com sucesso"})
-    } catch (errr ){
-        res.status(500).json({erro:"Erro ao deletar categoria"})
+    } catch (err ){
+        res.status(500).json({erro:"Erro ao deletar categoria", err})
     }
 }

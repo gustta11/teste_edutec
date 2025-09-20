@@ -1,7 +1,9 @@
 import {Router} from "express"
 import { listarPresentes, adicionarPresente } from "../controllers/presenteController.js"
 
-Router.get("/", listarPresentes)
-Router.post("/", adicionarPresente)
+const router = Router()
 
-export default Router
+router.get("/", listarPresentes)
+router.post("/", adicionarPresente)
+
+export default router

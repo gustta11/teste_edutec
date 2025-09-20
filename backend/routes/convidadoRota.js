@@ -1,8 +1,12 @@
 import {Router} from "express"
 
-import { listarConvidado, adicionarConvidado } from "../controllers/convidadoController.js"
+import { listarConvidado, adicionarConvidado, mudarDadosConvidado, deletaConvidado } from "../controllers/convidadoController.js"
 
-Router.get("/", listarConvidado)
-Router.post("/", adicionarConvidado)
+const router = Router()
 
-export default Router
+router.get("/", listarConvidado)
+router.post("/", adicionarConvidado)
+router.put("/", mudarDadosConvidado)
+router.delete("/", deletaConvidado)
+
+export default router

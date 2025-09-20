@@ -1,4 +1,4 @@
-import { getAllConvidados, createConvidado } from "../models/convidadoModel.js";
+import { getAllConvidados, createConvidado, updateConvidado, deleteConvidado} from "../models/convidadoModel.js";
 
 export const listarConvidado = async (req, res) =>{
     try{
@@ -15,5 +15,23 @@ export const adicionarConvidado = async (req, res) =>{
         res.json({mensagem: "Convidado registrado com sucesso"})
     } catch (err) {
         res.status(500).json({erro: "Erro ao registrar convidado", err})
+    }
+}
+
+export const mudarDadosConvidado = async (req, res) =>{
+    try{
+        await updateConvidado(req.params.id,req.body)
+        res.json({mensagem:"Atualização de dados do convidado feita com sucesso"})
+    } catch (err) {
+        res.status(500).json({erro:"Erro ao atualizar dados do convidado"}, err)
+    }
+}
+
+export const deletaConvidado = async (req, res) =>{
+    try{
+        await deletaConvidado(req.params.id)
+        res.json({mensagem:"Convidado apagado com sucesso"})
+    } catch (err){
+        res.status(500).json({erro: "Erro ao apagar convidado"})
     }
 }

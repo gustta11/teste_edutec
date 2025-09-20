@@ -1,7 +1,9 @@
 import {Router} from "express"
 import { listarFormaPagamento, adicionarFormaPagamento } from "../controllers/formaPagamentoController.js"
 
-Router.get("/", listarFormaPagamento)
-Router.post("/", adicionarFormaPagamento)
+const router = Router()
 
-export default Router
+router.get("/", listarFormaPagamento)
+router.post("/", adicionarFormaPagamento)
+
+export default router
