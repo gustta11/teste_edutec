@@ -5,6 +5,7 @@ import categoriaRoutes from "./routes/categoriaRota.js";
 import eventoRoutes from "./routes/eventoRota.js";
 import convidadoRoutes from "./routes/convidadoRota.js";
 import presenteRoutes from "./routes/presenteRota.js";
+import usuarioAdminRoutes from "./routes/usuarioAdminRota.js";
 
 const app = express();
 
@@ -17,6 +18,7 @@ app.use("/categoria", categoriaRoutes)
 app.use("/evento", eventoRoutes)
 app.use("/convidado", convidadoRoutes)
 app.use("/presente", presenteRoutes)
+app.use("/usuarioAdmin", usuarioAdminRoutes)
 
 
 

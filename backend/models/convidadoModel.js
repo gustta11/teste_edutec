@@ -1,13 +1,13 @@
 import db from "../config/db.js";
 
 export const getAllConvidados = async () => {
-    const [rows] = await db.query("SELECT * FROM convidados WHERE ativo = 1")
+    const [rows] = await db.query("SELECT * FROM convidados")
     return rows
 };
 
 export const createConvidado = async (convidado) =>{
     const {cpf,nome,telefone,email,id_evento} = convidado
-    await db.query("ISERT INTO convidados (cpf,nome,telefone,email,id_evento) VALUES (?,?,?,?,?) ",
+    await db.query("INSERT INTO convidados (cpf,nome,telefone,email,id_evento) VALUES (?,?,?,?,?) ",
     [cpf,nome,telefone,email,id_evento]) 
 }
 
@@ -47,5 +47,5 @@ export const updateConvidado = async (id,convidado) =>{
 }
 
 export const deleteConvidado = async (id) =>{
-    await db.query("DELETE * FROM convidados WHERE id = ? ", [id])
+    await db.query("DELETE FROM convidados WHERE id = ? ", [id])
 }

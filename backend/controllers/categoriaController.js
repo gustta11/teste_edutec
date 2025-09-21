@@ -20,7 +20,7 @@ export const adicionarCategoria = async (req, res) =>{
 
 export const mudarCategoria = async (req, res) =>{
     try{
-        await updateCategoria(req.params.id,req.body.nome)
+        await updateCategoria(req.params.id,req.body)
         res.json({mensagem:"Categoria atualizada com sucesso"})
     } catch (err ){
         res.status(500).json({erro:"Erro ao atualzar categoria",err})

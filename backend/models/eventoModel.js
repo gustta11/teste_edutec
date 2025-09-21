@@ -8,7 +8,7 @@ export const getAllEventos = async () => {
 
 export const createEvento = async (evento) =>{
     const {nome,data_evento,localizacao,anfitriao,senha_evento,data_criacao,id_admin} = evento
-    await db.query("ISERT INTO eventos (nome,data_evento,localizacao,afintriao,senha_evento,ativo,data_criacao,id_admin) VALUES (?,?,?,?,?,1,?,?) ",
+    await db.query("INSERT INTO eventos (nome,data_evento,localizacao,anfitriao,senha_evento,ativo,data_criacao,id_admin) VALUES (?,?,?,?,?,1,?,?) ",
     [nome,data_evento,localizacao,anfitriao,senha_evento,data_criacao,id_admin]) 
 }
 
@@ -58,7 +58,7 @@ export const updateEvento = async (id,evento) =>{
 }
 
 export const deleteEvento = async (id) =>{
-    await db.query("DELETE * FROM eventos WHERE id = ? ", [id])
+    await db.query("DELETE FROM eventos WHERE id = ? ", [id])
 }
 
 

@@ -1,21 +1,22 @@
 import db from "../config/db.js";
 
 export const getAllCategorias = async () => {
-    const [rows] = await db.query("SELECT * FROM categorias WHERE ativo = 1")
+    const [rows] = await db.query("SELECT * FROM categorias")
     return rows
 };
 
 export const createCategoria = async (categoria) =>{
     const {nome} = categoria
-    await db.query("ISERT INTO categorias (nome) VALUES (?) ",
+    await db.query("INSERT INTO categorias (nome) VALUES (?) ",
     [nome]) 
 }
 
 export const updateCategoria = async (id, categoria) =>{
     const{nome} = categoria
-    await db.query("UPDATE SET NOME = ? WHERE id = ?", [nome,id])
+    await db.query("UPDATE categorias SET nome = ? WHERE id = ?", [nome,id])
 }
 
 export const deleteCategoria = async (id) =>{
-    await db.query("DELETE FORM categorias WHERE id = ? ",[id])
+    console.log(id)
+    await db.query("DELETE FROM categorias WHERE id = ? ",[id])
 }
