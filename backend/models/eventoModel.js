@@ -16,6 +16,9 @@ export const updateEvento = async (id,evento) =>{
     const campos = [];
     const valores = [];
 
+    console.log("recebeu",id)
+    console.log("recebeu", evento)
+
     if(evento.nome){
         campos.push("nome = ?")
         valores.push(evento.nome)
@@ -28,7 +31,7 @@ export const updateEvento = async (id,evento) =>{
 
      if(evento.localizacao){
         campos.push("localizacao = ?")
-        valores.push(evento.lozalizacao)
+        valores.push(evento.localizacao)
     }
 
      if(evento.anfitriao){
@@ -41,7 +44,7 @@ export const updateEvento = async (id,evento) =>{
         valores.push(evento.senha_evento)
     }
 
-      if(convidado.data_criacao){
+      if(evento.data_criacao){
         campos.push("data_criacao = ?")
         valores.push(evento.data_criacao)
     }
@@ -52,6 +55,7 @@ export const updateEvento = async (id,evento) =>{
     }
 
     valores.push(id)
+    console.log(valores)
 
     const query = `UPDATE  eventos SET  ${campos.join(", ")} WHERE id = ?`
     await db.query(query, valores)

@@ -7,7 +7,7 @@ export const getAllPresentes = async () => {
 
 export const createPresente = async (presente) =>{
     const {nome,preco,limite_maximo,imagem,data_criacao,id_evento,id_categoria,id_pagamento} = presente
-    await db.query("INSERT INTO presentes (nome,preco,limite_maximo,imagem,ativo,data_criacao,id_evento,id_categoria,id_pagamento) VALUES (?,?,?,?,1,?,?,?,?)"
+    await db.query("INSERT INTO presentes (nome,preco,limite_maximo,imagem,ativo,data_criacao,id_evento,id_categoria,id_pagamento) VALUES (?,?,?,?,1,?,?,?,?)",
     [nome,preco,limite_maximo,imagem,data_criacao,id_evento,id_categoria,id_pagamento]
     )
 }
@@ -58,10 +58,10 @@ export const updatePresente = async (id,presente) =>{
 
     valores.push(id)
 
-    const query = `UPDATE  eventos SET  ${campos.join(", ")} WHERE id = ?`
+    const query = `UPDATE  presentes SET  ${campos.join(", ")} WHERE id = ?`
     await db.query(query, valores)
 }
 
 export const deletePresente = async (id) =>{
-    await db.query("DELETE * FROM presentes WHERE id = ?", [id])
+    await db.query("DELETE FROM presentes WHERE id = ?", [id])
 }
