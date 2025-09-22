@@ -1,5 +1,7 @@
 import { getAllUsuariosAdmin, getInfoUsuarioCpf, createUsuarioAdmin, updateUsuarioAdmin, deleteUsuarioAdmin } from "../models/usuarioAdminModel.js";
+import jwt from 'jsonwebtoken'
 
+const SECRET = 'chave_forte'
 
 export const loginAdmin = async (req,res) =>{
     try{
@@ -12,7 +14,8 @@ export const loginAdmin = async (req,res) =>{
         }
 
         if(admin.senha === senha){
-            return res.json({status: "Seja bem vindo", nome: admin.nome, id: admin.id})
+            const token = jwt.sign({id: admin.id, nome: admin.nome,}, SECRET, {expiresIn: "1h"})
+            return res.json({status: "Seja bem vindo", nome: admin.nome, id: admin.id, token})
         }else {
             return res.status(401).json({erro: "Senha incorreta"})
         }

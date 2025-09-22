@@ -11,9 +11,10 @@ export const listarEventos = async (req, res) =>{
 
 export const adicionarEvento = async (req, res) =>{
     try{
-        await createEvento(req.body)
-        res.json({mensagem: "Evento criado com sucesso"})
+        await createEvento(req.body, req.admin.id)
+        res.status(201).json({mensagem: "Evento criado com sucesso"})
     } catch (err) {
+        console.log(err)
         res.status(500).json({erro: "Erro ao criar evento", err})
     }
 }
