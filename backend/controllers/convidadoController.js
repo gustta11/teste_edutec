@@ -1,5 +1,8 @@
 import { getAllConvidados, createConvidado, updateConvidado, deleteConvidado, getConvidadoId, getConvidadoEvento,} from "../models/convidadoModel.js";
 import { getBySenha } from "../models/eventoModel.js";
+import jwt from "jsonwebtoken"
+
+export const SECRET = "senha_forte"
 
 export const loginConvidado = async (req, res) =>{
     try{
@@ -13,13 +16,19 @@ export const loginConvidado = async (req, res) =>{
 
         let convidado = await getConvidadoEvento(cpf,evento.id)
 
-        if(convidado.length > 0){
-            return res.json({status: "complete", convidado})
+        console.log(convidado)
+
+
+        if(convidado){
+            const token = jwt.sign({id: convidado.id, nome: convidado.nome, tipo: "convidado"},SECRET, {expiresIn:"1h"})
+            return res.json({status: "Complete", convidado: convidado, token})
         }
 
         const id = await createConvidado (cpf, evento.id)
 
-        return res.json({status: "Cadastro não completo", convidadoId: id})
+        const token = jwt.sign({id: id, tipo: "convidado"},SECRET, {expiresIn:"1h"})
+
+        return res.json({status: "Cadastro não completo", convidadoId: id, token})
 
     } catch (err){
 
@@ -31,7 +40,7 @@ export const loginConvidado = async (req, res) =>{
 
 export const completarCadastro = async (req, res) =>{
     try{
-        const {id} = req.params
+        const id = req.convidado.id
         const {nome, telefone, email} = req.body
 
         await updateConvidado(id, {nome, telefone, email, completo:1})

@@ -14,7 +14,7 @@ export const loginAdmin = async (req,res) =>{
         }
 
         if(admin.senha === senha){
-            const token = jwt.sign({id: admin.id, nome: admin.nome,}, SECRET, {expiresIn: "1h"})
+            const token = jwt.sign({id: admin.id, nome: admin.nome, tipo: "admin"}, SECRET, {expiresIn: "1h"})
             return res.json({status: "Seja bem vindo", nome: admin.nome, id: admin.id, token})
         }else {
             return res.status(401).json({erro: "Senha incorreta"})

@@ -12,7 +12,7 @@ export const getConvidadoId = async () =>{
 
 export const getConvidadoEvento = async (cpf, id_evento) => {
     const [rows] = await db.query("SELECT * FROM convidados WHERE cpf = ? AND id_evento = ? LIMIT 1 ", [cpf,id_evento])
-    return rows
+    return rows[0]
 };
 
 export const createConvidado = async (cpf, id_evento) =>{
