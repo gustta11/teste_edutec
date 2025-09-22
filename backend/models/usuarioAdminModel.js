@@ -5,6 +5,11 @@ export const getAllUsuariosAdmin = async () => {
     return rows
 };
 
+export const getInfoUsuarioCpf = async (cpf) =>{
+    const [rows] = await db.query("SELECT * FROM usuarios_admin WHERE cpf =?", [cpf])
+    return rows[0]
+}
+
 export const createUsuarioAdmin = async (usuario_admin) =>{
     const {cpf,nome,senha} = usuario_admin
     await db.query("INSERT INTO usuarios_admin (cpf,nome,senha) VALUES (?,?,?) ",

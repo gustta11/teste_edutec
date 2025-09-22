@@ -1,4 +1,28 @@
-import { getAllUsuariosAdmin, createUsuarioAdmin, updateUsuarioAdmin, deleteUsuarioAdmin } from "../models/usuarioAdminModel.js";
+import { getAllUsuariosAdmin, getInfoUsuarioCpf, createUsuarioAdmin, updateUsuarioAdmin, deleteUsuarioAdmin } from "../models/usuarioAdminModel.js";
+
+
+export const loginAdmin = async (req,res) =>{
+    try{
+        const {cpf, senha} = req.body
+
+        const admin = await getInfoUsuarioCpf(cpf)
+
+        if(!admin){
+            return res.status(401).json({erro:"Usuário não cadastrado, cadastre-se"})
+        }
+
+        if(admin.senha === senha){
+            return res.json({status: "Seja bem vindo", nome: admin.nome, id: admin.id})
+        }else {
+            return res.status(401).json({erro: "Senha incorreta"})
+        }
+
+    } catch (err){
+        console.log(err)
+        return res.status(500).json({erro: "Erro no login"})
+    }
+}
+
 
 export const listarUsuarioAdmin = async (req,res) =>{
     try{
