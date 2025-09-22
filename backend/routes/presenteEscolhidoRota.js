@@ -1,6 +1,6 @@
 import {Router} from "express"
 
-import { listarPresentesEscolhidos, mudarDadosPresenteEscolhido, adicionarPresenteEscolhido, deletaPresenteEscolhido } from "../controllers/presenteEscolhidoController"
+import { listarPresentesEscolhidos, mudarDadosPresenteEscolhido, adicionarPresenteEscolhido, deletaPresenteEscolhido } from "../controllers/presenteEscolhidoController.js"
 
 const router = Router()
 

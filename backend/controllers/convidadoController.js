@@ -13,7 +13,7 @@ export const loginConvidado = async (req, res) =>{
 
         let convidado = await getConvidadoEvento(cpf,evento.id)
 
-        if(convidado){
+        if(convidado.length > 0){
             return res.json({status: "complete", convidado})
         }
 

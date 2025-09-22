@@ -15,9 +15,7 @@ export const getConvidadoEvento = async (cpf, id_evento) => {
     return rows
 };
 
-export const createConvidado = async (cpfConvidado, idEvento) =>{
-    const {cpf} = cpfConvidado
-    const {id_evento} = idEvento
+export const createConvidado = async (cpf, id_evento) =>{
 
     const [res] = await db.query("INSERT INTO convidados (cpf,id_evento, completo) VALUES (?,?,0) ",
     [cpf,id_evento]) 

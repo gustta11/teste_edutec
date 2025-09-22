@@ -1,4 +1,4 @@
-import { createPresentesEscolhidos, getAllPresentesEscolhidos, updatePresentesEscolhidos, deletePresentesEscolhidos } from "../models/presenteEscolhidoModel";
+import { createPresentesEscolhidos, getAllPresentesEscolhidos, updatePresentesEscolhidos, deletePresentesEscolhidos } from "../models/presenteEscolhidoModel.js";
 
 export const listarPresentesEscolhidos = async(req, res) =>{
     try{
@@ -30,7 +30,7 @@ export const mudarDadosPresenteEscolhido = async (req, res) =>{
 
 export const deletaPresenteEscolhido = async (req, res) =>{
     try{
-        await deletaPresenteEscolhido(req.params.id)
+        await deletePresentesEscolhidos(req.params.id)
         res.json({mensagem:"Presente apagado com sucesso"})
     } catch (err){
         res.status(500).json({erro: "Erro ao apagar Presente"})
