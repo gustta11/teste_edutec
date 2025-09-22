@@ -6,6 +6,11 @@ export const getAllEventos = async () => {
     return rows
 };
 
+export const getBySenha = async (senha) =>{
+    const [rows] = await db.query("SELECT * FROM eventos WHERE senha_evento = ? LIMIT 1", [senha])
+    return rows[0]
+}
+
 export const createEvento = async (evento) =>{
     const {nome,data_evento,localizacao,anfitriao,senha_evento,data_criacao,id_admin} = evento
     await db.query("INSERT INTO eventos (nome,data_evento,localizacao,anfitriao,senha_evento,ativo,data_criacao,id_admin) VALUES (?,?,?,?,?,1,?,?) ",

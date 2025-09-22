@@ -1,4 +1,48 @@
-import { getAllConvidados, createConvidado, updateConvidado, deleteConvidado} from "../models/convidadoModel.js";
+import { getAllConvidados, createConvidado, updateConvidado, deleteConvidado, getConvidadoId, getConvidadoEvento,} from "../models/convidadoModel.js";
+import { getBySenha } from "../models/eventoModel.js";
+
+export const loginConvidado = async (req, res) =>{
+    try{
+        const {cpf, senha_evento} = req.body;
+
+        const evento = await getBySenha(senha_evento)
+
+        if(!evento || evento.ativo!== 1){
+            return res.status(401).json({erro:"Evento inválido ou inativo"})
+        }
+
+        let convidado = await getConvidadoEvento(cpf,evento.id)
+
+        if(convidado){
+            return res.json({status: "complete", convidado})
+        }
+
+        const id = await createConvidado (cpf, evento.id)
+
+        return res.json({status: "Cadastro não completo", convidadoId: id})
+
+    } catch (err){
+
+        console.log(err)
+
+        return res.status(500).json({erro: "Erro no login"})
+    }
+} 
+
+export const completarCadastro = async (req, res) =>{
+    try{
+        const {id} = req.params
+        const {nome, telefone, email} = req.body
+
+        await updateConvidado(id, {nome, telefone, email, completo:1})
+
+        return res.json({ mensagem: "Cadastro completo", id})
+    } catch (err){
+        console.log(err)
+        return res.status(500).json({erro: "Erro ao completar cadastro"})
+    }
+}
+
 
 export const listarConvidado = async (req, res) =>{
     try{
@@ -6,15 +50,6 @@ export const listarConvidado = async (req, res) =>{
         res.json(convidados)
     } catch (err) {
         res.status(500).json({erro: "Erro ao listar convidados", err})
-    }
-}
-
-export const adicionarConvidado = async (req, res) =>{
-    try{
-        await createConvidado(req.body)
-        res.json({mensagem: "Convidado registrado com sucesso"})
-    } catch (err) {
-        res.status(500).json({erro: "Erro ao registrar convidado", err})
     }
 }
 
@@ -29,7 +64,7 @@ export const mudarDadosConvidado = async (req, res) =>{
 
 export const deletaConvidado = async (req, res) =>{
     try{
-        await deletaConvidado(req.params.id)
+        await deleteConvidado(req.params.id)
         res.json({mensagem:"Convidado apagado com sucesso"})
     } catch (err){
         res.status(500).json({erro: "Erro ao apagar convidado"})

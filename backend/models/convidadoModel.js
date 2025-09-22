@@ -1,24 +1,33 @@
 import db from "../config/db.js";
 
-export const getAllConvidados = async () => {
+export const getAllConvidados = async () =>{
     const [rows] = await db.query("SELECT * FROM convidados")
+    return rows
+}
+
+export const getConvidadoId = async () =>{
+    const [rows] = await db.query("SELECT * FROM convidados WHERE id = ?", [id])
+    return rows[0]
+}
+
+export const getConvidadoEvento = async (cpf, id_evento) => {
+    const [rows] = await db.query("SELECT * FROM convidados WHERE cpf = ? AND id_evento = ? LIMIT 1 ", [cpf,id_evento])
     return rows
 };
 
-export const createConvidado = async (convidado) =>{
-    const {cpf,nome,telefone,email,id_evento} = convidado
-    await db.query("INSERT INTO convidados (cpf,nome,telefone,email,id_evento) VALUES (?,?,?,?,?) ",
-    [cpf,nome,telefone,email,id_evento]) 
+export const createConvidado = async (cpfConvidado, idEvento) =>{
+    const {cpf} = cpfConvidado
+    const {id_evento} = idEvento
+
+    const [res] = await db.query("INSERT INTO convidados (cpf,id_evento, completo) VALUES (?,?,0) ",
+    [cpf,id_evento]) 
+
+    return res.insertId
 }
 
 export const updateConvidado = async (id,convidado) =>{
     const campos = [];
     const valores = [];
-
-    if(convidado.cpf){
-        campos.push("cpf = ?")
-        valores.push(convidado.cpf)
-    }
 
      if(convidado.nome){
         campos.push("nome = ?")
@@ -35,10 +44,11 @@ export const updateConvidado = async (id,convidado) =>{
         valores.push(convidado.email)
     }
 
-     if(convidado.id_evento){
-        campos.push("id_evento = ?")
-        valores.push(convidado.id_evento)
+    if(convidado.completo){
+        campos.push("completo = ?")
+        valores.push(convidado.completo)
     }
+
 
     valores.push(id)
 
