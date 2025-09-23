@@ -18,7 +18,7 @@ export const getCategoriaMaisEscolhida = async () =>{
     const rows = await db.query(` SELECT ca.nome AS 'Nome da Categoria', COUNT(*) AS Quantidade FROM categorias ca
         INNER JOIN presentes pr 
         ON ca.id = pr.id_categoria
-        GROUP BY Nome_Categoria `)
+        GROUP BY ca.nome `)
     
     return rows
 }

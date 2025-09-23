@@ -8,6 +8,7 @@ import presenteRoutes from "./routes/presenteRota.js";
 import usuarioAdminRoutes from "./routes/usuarioAdminRota.js";
 import pagamentoRoutes from "./routes/formaPagamentoRota.js"
 import presenteEscolhidoRoutes from "./routes/presenteEscolhidoRota.js"
+import relatorio from "./routes/relatorioRota.js"
 
 const app = express();
 
@@ -23,6 +24,7 @@ app.use("/presente", presenteRoutes)
 app.use("/formaPagamento", pagamentoRoutes)
 app.use("/usuarioAdmin", usuarioAdminRoutes)
 app.use("/presenteEscolhido", presenteEscolhidoRoutes)
+app.use("/relatorios",relatorio)
 app.use('/uploads', express.static('uploads'))
 
 
