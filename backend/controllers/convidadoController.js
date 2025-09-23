@@ -16,8 +16,6 @@ export const loginConvidado = async (req, res) =>{
 
         let convidado = await getConvidadoEvento(cpf,evento.id)
 
-        console.log(convidado)
-
 
         if(convidado){
             const token = jwt.sign({id: convidado.id, nome: convidado.nome, tipo: "convidado"},SECRET, {expiresIn:"1h"})

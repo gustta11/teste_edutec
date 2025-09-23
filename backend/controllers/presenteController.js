@@ -20,7 +20,7 @@ export const adicionarPresente = async(req,res) =>{
 
         const eventos = await getEventosByAdminId(adminId)
 
-       const eventoValido = eventos.some(evento => evento.id === Number(id_evento))
+        const eventoValido = eventos.some(evento => evento.id === Number(id_evento))
 
         if(!eventoValido){
             return res.status(403).json({erro: "Evento inválido para esse admin"})
