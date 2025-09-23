@@ -1,4 +1,5 @@
 import { getAllPresentes, createPresente, updatePresente, deletePresente } from "../models/presenteModel.js";
+import { getEventosByAdminId } from "../models/eventoModel.js";
 
 export const listarPresentes = async(req, res) =>{
     try{
@@ -12,7 +13,21 @@ export const listarPresentes = async(req, res) =>{
 
 export const adicionarPresente = async(req,res) =>{
     try{
-        await createPresente(req.body)
+        const adminId = req.admin.id
+        const imagem = req.file ? req.file.filename : null
+        const {id_evento} = req.body
+
+
+        const eventos = await getEventosByAdminId(adminId)
+
+       const eventoValido = eventos.some(evento => evento.id === Number(id_evento))
+
+        if(!eventoValido){
+            return res.status(403).json({erro: "Evento inválido para esse admin"})
+        }
+
+        await createPresente(req.body,imagem, id_evento)
+
         res.json({mensagem: "Presente registrado com sucesso"})
     } catch (err){
         res.status(500).json({erro: "Erro ao registrar presente", err})

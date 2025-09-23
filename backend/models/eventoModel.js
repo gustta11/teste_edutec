@@ -6,6 +6,11 @@ export const getAllEventos = async () => {
     return rows
 };
 
+export const getEventosByAdminId = async (idAdmin) =>{
+  const [rows] = await db.query("SELECT * FROM eventos WHERE id_admin = ? AND ativo = 1",[idAdmin])
+  return rows
+}
+
 export const getBySenha = async (senha) =>{
     const [rows] = await db.query("SELECT * FROM eventos WHERE senha_evento = ? LIMIT 1", [senha])
     return rows[0]

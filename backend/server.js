@@ -23,6 +23,7 @@ app.use("/presente", presenteRoutes)
 app.use("/formaPagamento", pagamentoRoutes)
 app.use("/usuarioAdmin", usuarioAdminRoutes)
 app.use("/presenteEscolhido", presenteEscolhidoRoutes)
+app.use('/uploads', express.static('uploads'))
 
 
 

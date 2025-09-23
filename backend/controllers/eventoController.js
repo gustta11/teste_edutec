@@ -1,4 +1,4 @@
-import { getAllEventos, createEvento, updateEvento, deleteEvento } from "../models/eventoModel.js";
+import { getAllEventos, createEvento, updateEvento, deleteEvento, getEventosByAdminId } from "../models/eventoModel.js";
 
 export const listarEventos = async (req, res) =>{
     try{
@@ -8,6 +8,20 @@ export const listarEventos = async (req, res) =>{
         res.status(500).json({erro: "Erro ao listar eventos",err})
     }
 }
+
+export const getEventosDoAdmin = async (req, res) => {
+  try {
+    const adminId = req.admin.id; 
+    console.log(adminId)
+    const eventos = await getEventosByAdminId(adminId); 
+
+    return res.json(eventos);
+  } catch (err) {
+    console.error(err);
+    return res.status(500).json({ erro: "Erro ao buscar eventos" });
+  }
+}
+
 
 export const adicionarEvento = async (req, res) =>{
     try{
