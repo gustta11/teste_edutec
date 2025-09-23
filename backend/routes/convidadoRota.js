@@ -7,7 +7,7 @@ const router = Router()
 
 router.get("/", listarConvidado)
 router.post("/login",loginConvidado )
-router.put("/completar/:id", autenticarTokenConvidado, completarCadastro)
+router.put("/completar", autenticarTokenConvidado, completarCadastro)
 router.put("/:id",mudarDadosConvidado)
 router.delete("/:id", deletaConvidado)
 
