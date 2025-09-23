@@ -1,9 +1,18 @@
-import { getConvidadosComPresentesSelecionados, getCategoriaMaisEscolhida, getPresentesNaoEscolhidos, getTotalPresentesEscolhido } from "../models/relatorioModel.js";
+import { getConvidadosComPresentesSelecionados, getCategoriaMaisEscolhida, getPresentesNaoEscolhidos, getTotalPresentesEscolhido, getListaDePresentesEscolhidos } from "../models/relatorioModel.js";
 
 export const convidadosComPresentesSelecionados = async (req,res) => {
     try{
          const convidados = await getConvidadosComPresentesSelecionados()
          res.json(convidados)
+    } catch (err){
+        res.status(500).json({erro: "Erro ao listar convidados com presentes selecionados"})
+    }
+}
+
+export const  listaDePresentesEscolhidos = async (req,res) => {
+    try{
+         const presentes = await getListaDePresentesEscolhidos()
+         res.json(presentes)
     } catch (err){
         res.status(500).json({erro: "Erro ao listar convidados com presentes selecionados"})
     }

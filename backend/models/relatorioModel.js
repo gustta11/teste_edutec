@@ -9,6 +9,14 @@ export const getConvidadosComPresentesSelecionados = async () =>{
     return rows
 }
 
+export const getListaDePresentesEscolhidos = async () =>{
+    const rows = await db.query(`SELECT co.nome AS 'Nome', pr.nome AS 'Presente', pe.forma_pagamento AS 'Forma de pagamento' FROM presentes_escolhidos pe
+    INNER JOIN convidados co ON co.id = pe.id_convidado
+    INNER JOIN presentes pr ON pr.id = pe.id_presente`)
+
+    return rows
+}
+
 export const getTotalPresentesEscolhido = async () =>{
     const rows = await db.query( ` SELECT COUNT(*) as Total FROM presentes_escolhidos`)
     return rows
