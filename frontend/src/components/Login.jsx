@@ -1,6 +1,8 @@
 import { useState } from "react";
+import {useNavigate} from "react-router-dom"
 
 export default function Login(){
+    const navigate = useNavigate()
     const [cpf, setCpf] = useState('')
     const [senha, setSenha] = useState('')
 
@@ -20,10 +22,11 @@ export default function Login(){
             localStorage.setItem('token', data.token)
 
             if(response.ok){
-                alert(`Seja bem-vindo ${data.nome}`)
+               navigate('/admin')
             }else{
                 alert('Falha no login:' + (data.message || 'Dados incorretos'))
             }
+
         } catch (error) {
             alert('Erro ao conectar com o servidor')
             console.log(error)
