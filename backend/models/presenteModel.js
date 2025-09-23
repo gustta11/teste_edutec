@@ -7,9 +7,10 @@ export const getAllPresentes = async () => {
 
 
 export const createPresente = async (presente,image,evento_id) =>{
-    const {nome,preco,limite_maximo,data_criacao,id_evento,id_categoria,id_pagamento} = presente
+    const data_criacaoo = new Date()
+    const {nome,preco,limite_maximo,id_categoria,id_pagamento} = presente
     await db.query("INSERT INTO presentes (nome,preco,limite_maximo,imagem,ativo,data_criacao,id_evento,id_categoria,id_pagamento) VALUES (?,?,?,?,1,?,?,?,?)",
-    [nome,preco,limite_maximo,image,data_criacao,evento_id,id_categoria,id_pagamento]
+    [nome,preco,limite_maximo,image,data_criacaoo,evento_id,id_categoria,id_pagamento]
     )
 }
 

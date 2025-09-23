@@ -30,6 +30,7 @@ export const adicionarPresente = async(req,res) =>{
 
         res.json({mensagem: "Presente registrado com sucesso"})
     } catch (err){
+        console.log(err)
         res.status(500).json({erro: "Erro ao registrar presente", err})
     }
 } 

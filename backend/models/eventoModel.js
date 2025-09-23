@@ -17,9 +17,10 @@ export const getBySenha = async (senha) =>{
 }
 
 export const createEvento = async (evento,id_admin) =>{
-    const {nome,data_evento,localizacao,anfitriao,senha_evento,data_criacao} = evento
+    const data_criacaoo = new Date()
+    const {nome,data_evento,localizacao,anfitriao,senha_evento} = evento
     await db.query("INSERT INTO eventos (nome,data_evento,localizacao,anfitriao,senha_evento,ativo,data_criacao,id_admin) VALUES (?,?,?,?,?,1,?,?) ",
-    [nome,data_evento,localizacao,anfitriao,senha_evento,data_criacao,id_admin]) 
+    [nome,data_evento,localizacao,anfitriao,senha_evento,data_criacaoo,id_admin]) 
 }
 
 export const updateEvento = async (id,evento) =>{
