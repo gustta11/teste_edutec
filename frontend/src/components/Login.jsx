@@ -19,7 +19,7 @@ export default function Login(){
         })
             const data = await response.json()
 
-            localStorage.setItem('token', data.token)
+            localStorage.setItem('tokenAdmin', data.token)
 
             if(response.ok){
                navigate('/admin')
