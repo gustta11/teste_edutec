@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import './ListaPresentesEscolhidos.css'
 
 export default function ListaPresentesEscolhidos() {
   const [presentesEscolhidos, setPresentesEscolhidos] = useState([]);
@@ -31,7 +32,7 @@ export default function ListaPresentesEscolhidos() {
   if (error) return <p>{error}</p>;
 
   return (
-    <div>
+    <div className='div-listaPresentes'>
       <h2>Presentes Escolhidos</h2>
       {presentesEscolhidos.length === 0 ? (
         <p>Nenhum presente escolhido ainda.</p>

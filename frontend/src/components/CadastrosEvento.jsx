@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 
+import './CadastrosEvento.css'
+
 export default function CadastroEvento() {
   const [form, setForm] = useState({
     nome: "",
@@ -105,8 +107,8 @@ export default function CadastroEvento() {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <div className="div-cadastro-eventos">
+      <form onSubmit={handleSubmit} className="form-cadastro-eventos"> 
         <h2>{editando ? "Editar Evento" : "Cadastrar Evento"}</h2>
 
         <label>Nome do evento:</label>

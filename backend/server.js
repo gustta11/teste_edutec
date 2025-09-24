@@ -1,5 +1,6 @@
 import express from 'express';
 import cors from 'cors';
+import path from 'path'
 
 import categoriaRoutes from "./routes/categoriaRota.js";
 import eventoRoutes from "./routes/eventoRota.js";

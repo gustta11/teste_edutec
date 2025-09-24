@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 
+import './CadastroFormaPagamento.css'
+
 export default function CadastroFormaPagamento() {
   const [nome, setNome] = useState("");
   const [formaPagamento, setFormaPagamento] = useState([]);
@@ -77,10 +79,10 @@ export default function CadastroFormaPagamento() {
   };
 
   return (
-    <div>
+    <div className="div-cadastro-formaPagamento">
       <h2>{editandoId ? "Editar Forma de pagamento" : "Cadastro de Formas de pagamento"}</h2>
 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="form-cadastro-formaPagamento">
         <input
           type="text"
           placeholder="Nome da forma de pagamento"

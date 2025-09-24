@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import './CadastroConvidado.css'
+
 export default function CadastroConvidado() {
   const [form, setForm] = useState({
     nome: '',
@@ -43,9 +45,9 @@ export default function CadastroConvidado() {
   };
 
   return (
-    <div>
+    <div className="div-cadastro-convidado">
       <h2>Completar Cadastro</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="form-cadastro-convidado">
         <input
           type="text"
           name="nome"

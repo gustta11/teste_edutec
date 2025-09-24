@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 
+import './CadastroCategoria.css'
+
 export default function CadastroCategorias() {
   const [nome, setNome] = useState("");
   const [categorias, setCategorias] = useState([]);
@@ -77,10 +79,10 @@ export default function CadastroCategorias() {
   };
 
   return (
-    <div>
+    <div className="div-cadastro-categoria">
       <h2>{editandoId ? "Editar Categoria" : "Cadastro de Categorias"}</h2>
 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="form-cadastro-categoria">
         <input
           type="text"
           placeholder="Nome da categoria"

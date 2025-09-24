@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 
+import './CadastrosPresente.css'
+
 export default function CadastroPresente() {
   const [form, setForm] = useState({
     nome: '',
@@ -156,9 +158,9 @@ export default function CadastroPresente() {
   };
 
   return (
-    <div>
+    <div className="div-cadastro-presentes">
       <h2>{editingId ? 'Editar Presente' : 'Cadastro de Presente'}</h2>
-      <form onSubmit={handleSubmit} encType="multipart/form-data">
+      <form onSubmit={handleSubmit} encType="multipart/form-data" className="form-cadastro-presntes">
         <input
           type="text"
           name="nome"

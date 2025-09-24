@@ -1,5 +1,6 @@
 import { useState } from "react";
 import {useNavigate} from "react-router-dom"
+import "./Login.css"
 
 export default function Login(){
     const navigate = useNavigate()
@@ -34,7 +35,7 @@ export default function Login(){
     }
 
     return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="login-form">
         <div>
             <label>CPF:</label>
             <input type="text" value={cpf} onChange={(e)=> setCpf(e.target.value)} placeholder="Digite seu CPF" required/>

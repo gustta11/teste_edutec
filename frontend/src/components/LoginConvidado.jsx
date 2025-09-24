@@ -1,6 +1,7 @@
 
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import './LoginConvidado.css'
 
 export default function LoginConvidado() {
   const [cpf, setCpf] = useState('');
@@ -25,9 +26,9 @@ export default function LoginConvidado() {
 
       if (data.status === "Complete") {
         console.log("Cadastro completo")
-        navigate('/selecionarPresente')
+        navigate('/selecionar-presentes')
       } else if (data.status === "Cadastro não completo") {
-        navigate('/cadastroConvidado');
+        navigate('/cadastro-convidados');
       }else{
         alert(data.erro || "Falha no login")
       }
@@ -38,7 +39,7 @@ export default function LoginConvidado() {
   };
 
   return (
-    <form onSubmit={handleLogin}>
+    <form onSubmit={handleLogin} className='login-form-convidado'>
       <h2>Login de Convidado</h2>
       <input
         type="text"
