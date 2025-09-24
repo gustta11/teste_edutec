@@ -23,7 +23,6 @@ export const categoriasMaisEscolhida = async (req, res) =>{
         const categorias = await getCategoriaMaisEscolhida()
         res.json(categorias)
     } catch (err){
-        console.log(err)
         res.status(500).json({erro: "Erro ao listar categorias maais escolhidas"})
     }
 }

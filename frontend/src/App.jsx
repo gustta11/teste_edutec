@@ -13,6 +13,7 @@ import CadastroEventos from './components/CadastrosEvento'
 import CadastroPresentes from './components/CadastrosPresente'
 import ListaPresentesEscolhidos from './components/ListaPresentesEscolhidos'
 import Relatorios from './components/relatorio'
+import CadastroAdmin from './components/CadastroAdmin'
 
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
         <Route path="/cadastro-presentes" element={<CadastroPresentes />} />
         <Route path="/lista-presentes-escolhidos" element={<ListaPresentesEscolhidos />} />
         <Route path="/relatorios" element={<Relatorios />} />
+        <Route path="/cadastro-admin" element ={<CadastroAdmin/>}/>
       </Routes>
     </Router>
   )

@@ -15,7 +15,6 @@ export const adicionarPresenteEscolhido = async(req,res) =>{
         await createPresentesEscolhidos(req.body, req.convidado.id)
         res.json({mensagem: "Presente registrado com sucesso"})
     } catch (err){
-        console.log(err)
         res.status(500).json({erro: "Erro ao registrar presente", err})
     }
 } 

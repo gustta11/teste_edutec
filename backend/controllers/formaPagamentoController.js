@@ -23,7 +23,6 @@ export const mudarDadosFormaPagamento = async (req, res) =>{
         await updateFormaPagamento(req.params.id,req.body.nome)
         res.json({mensagem:"Atualização de dados do pagamento feita com sucesso"})
     } catch (err) {
-        console.log(err)
         res.status(500).json({erro:"Erro ao atualizar dados da forma de pagamento"}, err)
     }
 }

@@ -34,7 +34,12 @@ export default function Login(){
         }
     }
 
+    const handleCadastroClick = () => {
+        navigate("/cadastro-admin"); 
+    };
+
     return (
+        <>
     <form onSubmit={handleSubmit} className="login-form">
         <div>
             <label>CPF:</label>
@@ -48,6 +53,16 @@ export default function Login(){
 
         <button type="submit">Entrar</button>
     </form>
+
+         <button
+        onClick={handleCadastroClick}
+        style={{ marginTop: "1rem" }}
+        className="btn-cadastro"
+      >
+        Cadastrar novo admin
+      </button>
+
+    </>
 )
 
 }

@@ -1,0 +1,84 @@
+
+
+.div-relatorio {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 1.5rem 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f7f9fc;
+  border-radius: 10px;
+  box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+  color: #2c3e50;
+}
+
+.div-relatorio h2 {
+  text-align: center;
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #1a1a1a;
+}
+
+.div-relatorio section {
+  background: white;
+  border: 1px solid #dde3e8;
+  padding: 1.2rem 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+.div-relatorio section h3 {
+  border-bottom: 3px solid #3498db;
+  padding-bottom: 0.4rem;
+  margin-bottom: 1rem;
+  color: #2980b9;
+  font-weight: 600;
+  font-size: 1.3rem;
+}
+
+.div-relatorio ul {
+  list-style-type: disc;
+  padding-left: 1.3rem;
+}
+
+.div-relatorio ul li {
+  margin-bottom: 0.4rem;
+  font-size: 1rem;
+  color: #34495e;
+}
+
+.div-relatorio table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1rem;
+}
+
+.div-relatorio table th,
+.div-relatorio table td {
+  border: 1px solid #cbd5e1;
+  padding: 0.6rem 1rem;
+  text-align: left;
+}
+
+.div-relatorio table th {
+  background-color: #3498db;
+  color: white;
+  font-weight: 600;
+}
+
+.div-relatorio table tr:nth-child(even) {
+  background-color: #f0f4f8;
+}
+
+.div-relatorio p {
+  font-size: 1.1rem;
+  color: #34495e;
+  margin: 0.4rem 0;
+  line-height: 1.4;
+}
+
+.div-relatorio p {
+  text-align: center;
+  font-weight: 600;
+  color: #7f8c8d;
+}

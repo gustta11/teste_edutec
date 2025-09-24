@@ -14,7 +14,7 @@ export default function Home() {
 
   return (
     <div className="home-container">
-      <h1>Bem-vindo ao Sistema de Lista de Presentes</h1>
+      <h1>Bem-vindo ao Sistema de Presentes</h1>
 
       <button className="btn" onClick={irParaLoginAdmin}>
         Login Administrador

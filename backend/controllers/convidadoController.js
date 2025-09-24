@@ -30,8 +30,6 @@ export const loginConvidado = async (req, res) =>{
 
     } catch (err){
 
-        console.log(err)
-
         return res.status(500).json({erro: "Erro no login"})
     }
 } 

@@ -30,7 +30,6 @@ export const adicionarPresente = async(req,res) =>{
 
         res.json({mensagem: "Presente registrado com sucesso"})
     } catch (err){
-        console.log(err)
         res.status(500).json({erro: "Erro ao registrar presente", err})
     }
 } 
@@ -44,7 +43,6 @@ export const mudarDadosPresente = async (req, res) =>{
         await updatePresente(req.params.id,presente)
         res.json({mensagem:"Atualização de dados do presente feita com sucesso"})
     } catch (err) {
-        console.log(err)
         res.status(500).json({erro:"Erro ao atualizar dados do presente"}, err)
     }
 }
@@ -54,7 +52,6 @@ export const deletaPresente = async (req, res) =>{
         await deletePresente(req.params.id)
         res.json({mensagem:"Presente apagado com sucesso"})
     } catch (err){
-        console.log(err)
         res.status(500).json({erro: "Erro ao apagar Presente"})
     }
 }

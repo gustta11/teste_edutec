@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 
+import './Relatorio.css'
+
 export default function Relatorios() {
   const [convidados, setConvidados] = useState([]);
   const [presentesEscolhidos, setPresentesEscolhidos] = useState([]);
@@ -61,7 +63,7 @@ export default function Relatorios() {
   if (error) return <p>Erro: {error}</p>;
 
   return (
-    <div>
+    <div className="div-relatorio">
       <h2>Relatórios</h2>
 
       <section>

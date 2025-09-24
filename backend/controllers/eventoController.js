@@ -12,7 +12,6 @@ export const listarEventos = async (req, res) =>{
 export const getEventosDoAdmin = async (req, res) => {
   try {
     const adminId = req.admin.id; 
-    console.log(adminId)
     const eventos = await getEventosByAdminId(adminId); 
 
     return res.json(eventos);
@@ -28,7 +27,6 @@ export const adicionarEvento = async (req, res) =>{
         await createEvento(req.body, req.admin.id)
         res.status(201).json({mensagem: "Evento criado com sucesso"})
     } catch (err) {
-        console.log(err)
         res.status(500).json({erro: "Erro ao criar evento", err})
     }
 }
@@ -47,7 +45,6 @@ export const deletaEvento = async (req, res) =>{
         await deleteEvento(req.params.id)
         res.json({mensagem:"Evento apagado com sucesso"})
     } catch (err){
-        console.log(err)
         res.status(500).json({erro: "Erro ao apagar evento"})
     }
 }
