@@ -12,7 +12,6 @@ export const listarPresentesEscolhidos = async(req, res) =>{
 
 export const adicionarPresenteEscolhido = async(req,res) =>{
     try{
-        console.log(req.convidado.id)
         await createPresentesEscolhidos(req.body, req.convidado.id)
         res.json({mensagem: "Presente registrado com sucesso"})
     } catch (err){

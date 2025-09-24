@@ -7,7 +7,7 @@ export const getAllPresentesEscolhidos = async () => {
 
 export const createPresentesEscolhidos = async (presenteEscolhido, id_convidado) =>{
     const {id_presente,mensagem,forma_pagamento,data_escolha} = presenteEscolhido
-    await db.query("INSERT INTO presentes_escolhidos (id_convidado,id_presente,mensagem,forma_pagamento,data_escolha) VALUES (?,?,?,?,?)",
+    await db.query("INSERT INTO presentes_escolhidos (id_convidado,id_presente,mensagem,forma_pagamento) VALUES (?,?,?,?)",
     [id_convidado,id_presente,mensagem,forma_pagamento,data_escolha]
     )
 }

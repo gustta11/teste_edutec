@@ -17,6 +17,9 @@ const PORT = 3000;
 app.use(express.json());
 app.use(cors())
 
+const __dirname = path.resolve();
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
 app.use("/categoria", categoriaRoutes)
 app.use("/evento", eventoRoutes)
 app.use("/convidado", convidadoRoutes)
