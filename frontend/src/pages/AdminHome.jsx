@@ -7,7 +7,7 @@ import CadastroFormaPagamento from "../components/CadastroFormaPagamento"
 export default function AdminHome(){
     return(
         <div>
-            <CadastroFormaPagamento/>
+            <CadastroPresente/>
         </div>
     )
 }
