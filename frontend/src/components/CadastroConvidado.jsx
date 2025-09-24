@@ -32,7 +32,7 @@ export default function CadastroConvidado() {
 
       if (response.ok) {
         alert("Cadastro completo!");
-        navigate("/pagina-do-convidado"); // redireciona onde quiser
+        navigate("/selecionarPresente"); 
       } else {
         alert(data.erro || "Erro ao completar cadastro");
       }

@@ -5,6 +5,7 @@ import Login from './components/Login'
 import AdminHome from './pages/AdminHome'
 import LoginConvidado from './components/LoginConvidado'
 import CadastroConvidado from './components/CadastroConvidado'
+import ListaPresente from './pages/ListaPresente'
 
 function App() {
  
@@ -12,9 +13,10 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element ={<Login/>}/>
+        <Route path="/" element ={<LoginConvidado/>}/>
         <Route path="/admin" element = {<AdminHome/>}/>
         <Route path="/cadastroConvidado" element= {<CadastroConvidado/>}/>
+        <Route path="/selecionarPresente" element= {<ListaPresente/>}/>
       </Routes>
     </Router>
   )

@@ -25,7 +25,7 @@ export default function LoginConvidado() {
 
       if (data.status === "Complete") {
         console.log("Cadastro completo")
-        
+        navigate('/selecionarPresente')
       } else if (data.status === "Cadastro não completo") {
         navigate('/cadastroConvidado');
       }else{
