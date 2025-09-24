@@ -12,7 +12,7 @@ export const createFormaPagamento = async (formaPagamento) =>{
 
 export const updateFormaPagamento = async (id, formaPagamento) =>{
     const {nome} = formaPagamento
-    await db.query("UPDATE formas_pagamento SET nome = ? WHERE id = ?", [nome, id])
+    await db.query("UPDATE formas_pagamento SET nome = ? WHERE id = ?", [id,nome])
 }
 
 export const deleteFormaPagamento = async (id) =>{

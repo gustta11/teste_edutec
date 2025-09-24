@@ -57,6 +57,15 @@ export const updatePresente = async (id,presente) =>{
         campos.push("id_pagamento = ?")
         valores.push(presente.id_pagamento)
       }
+      
+      if (presente.imagem) {
+        campos.push("imagem = ?");
+        valores.push(presente.imagem); 
+      }
+
+        if (campos.length === 0) {
+    throw new Error("Nenhum dado enviado para atualizar o presente.");
+  }
 
     valores.push(id)
 

@@ -37,9 +37,14 @@ export const adicionarPresente = async(req,res) =>{
 
 export const mudarDadosPresente = async (req, res) =>{
     try{
-        await updatePresente(req.params.id,req.body)
+        const presente = {
+            ...req.body,
+            imagem : req.file ? req.file.filename : null
+        }
+        await updatePresente(req.params.id,presente)
         res.json({mensagem:"Atualização de dados do presente feita com sucesso"})
     } catch (err) {
+        console.log(err)
         res.status(500).json({erro:"Erro ao atualizar dados do presente"}, err)
     }
 }
@@ -49,6 +54,7 @@ export const deletaPresente = async (req, res) =>{
         await deletePresente(req.params.id)
         res.json({mensagem:"Presente apagado com sucesso"})
     } catch (err){
+        console.log(err)
         res.status(500).json({erro: "Erro ao apagar Presente"})
     }
 }

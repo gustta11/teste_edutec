@@ -7,7 +7,7 @@ const router = Router()
 
 router.get("/", listarPresentes)
 router.post("/", autenticarToken, upload.single('imagem'), adicionarPresente)
-router.put("/:id", mudarDadosPresente)
-router.delete("/:id", deletaPresente)
+router.put("/:id", upload.single('imagem'),mudarDadosPresente)
+router.delete("/:id",  deletaPresente)
 
 export default router

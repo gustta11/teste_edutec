@@ -47,6 +47,7 @@ export const deletaEvento = async (req, res) =>{
         await deleteEvento(req.params.id)
         res.json({mensagem:"Evento apagado com sucesso"})
     } catch (err){
+        console.log(err)
         res.status(500).json({erro: "Erro ao apagar evento"})
     }
 }
