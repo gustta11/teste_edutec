@@ -216,7 +216,7 @@ export default function CadastroPresente() {
         >
           <option value="">Selecione a categoria</option>
           <option value="2">Acessório</option>
-          <option value="3">Casa</option>
+          <option value="4">Roupa</option>
         </select>
 
         <select
